@@ -6,7 +6,7 @@ This is the repo for the official Magpie Discord bot.
 
 ## Repo Structure
 | Codebase                           |   Description   |
-| :--------------------------------- | :-------------: |
+| :--------------------------------- | :-------------- |
 | [.docker](.docker) | Dockerfiles used to rebuild instances |
 | [.github](.github) | YML files used to keep the main branches up to date |
 | [auth](auth) | The authentication flows for premium and none premium members (Node.js) |
