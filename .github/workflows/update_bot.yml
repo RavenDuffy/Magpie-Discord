@@ -1,0 +1,46 @@
+name: Update Bot
+
+on:
+  push:
+    branches:
+      - main
+    pull_request:
+      branches: [main]
+      types: [opened, synchronize]
+
+jobs:
+  staging:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./bot
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '16.x'
+      - name: install
+        run: rm -rf node_modules && yarn install --frozen-lockfile
+      - name: lint
+        run: yarn lint
+      - name: build
+        run: yarn build
+      # - name: test // implement later (should just mocha/chai)
+  deploy:
+    needs: staging
+    runs-on: ubuntu-latest
+    if: ${{ github.event.name == 'push' }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: docker login
+        uses: docker/login-action@v1
+        with:
+          password: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: docker build
+        uses: docker/build-push-action@v2
+        with:
+          context: ./bot
+          file: ./bot/Dockerfile
+          push: true
+          tags: #tags here
