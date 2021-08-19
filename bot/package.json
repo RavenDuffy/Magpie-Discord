@@ -1,0 +1,13 @@
+{
+  "name": "magpie",
+  "version": "1.0.0",
+  "description": "Magpie discord bot",
+  "main": "index.js",
+  "author": "Raven",
+  "license": "MIT",
+  "dependencies": {
+    "@discordjs/rest": "^0.1.0-canary.0",
+    "discord-api-types": "^0.22.0",
+    "discord.js": "^13.1.0"
+  }
+}
