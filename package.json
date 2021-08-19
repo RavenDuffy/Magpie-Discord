@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "prepare": "husky install",
-    "bot:dev": "nodemon ./bot/magpie.ts --watch ./bot/*"
+    "bot:dev": "nodemon ./bot/magpie.ts --watch ./bot/*",
+    "bot:start": "ts-node ./bot/magpie.ts"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.29.2",
