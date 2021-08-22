@@ -2,7 +2,7 @@
 
 This is the repo for the official Magpie Discord bot.
 
-[**Get Magpie for your server**](https://discord.com/api/oauth2/authorize?client_id=878056685598568468&permissions=8&scope=bot)
+[**Get Magpie for your server**](https://discord.com/api/oauth2/authorize?client_id=878056685598568468&permissions=8&scope=bot%20applications.commands)
 
 ## What does this do?
 
