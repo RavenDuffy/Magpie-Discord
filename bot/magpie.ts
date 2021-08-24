@@ -33,14 +33,15 @@ commandFiles.forEach(async (file) => {
 
 client.once('ready', () => {
   RegisterCommands()
-  client.guilds.cache.forEach((g) => console.log(g.name))
+  console.log('Connected to the following servers:')
+  client.guilds.cache.forEach((g) => console.log(` - ${g.name}`))
+  console.log()
 })
 
 client.on('interactionCreate', async (interaction) => {
   if (!interaction.isCommand()) return
 
   const command = client.commands.get(interaction.commandName)
-  console.log(command)
 
   if (!command) return
 
